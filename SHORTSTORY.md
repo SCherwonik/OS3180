@@ -111,6 +111,14 @@ off slide 14. Grading note: titles are graded as the story — read titles
 | 18 | Sticker history: the era when electric meant expensive | fig41 | MSRP 2015–2020 vs 2026 ATP |
 | 19 | Driving on electrons has cost half as much for a decade | fig33 | cost-per-mile trends |
 | 20 | Hold design constant and the trend says ~44 MPG by 2045 | fig42 | the productivity projection |
+| 21 | Normalized by class, the productivity law is universal | fig43 | 2.0–2.6%/yr in every class |
+| 22 | EVs ride the same productivity clock | fig44 | Tesla proxy, +2.36%/yr |
+| 23 | Combustion alone kept the clock: no BEVs required | fig45 | ex-BEV fleet; the 0.4pp/yr electrification gap |
+| 24 | The 2023 Car SUV spike was the Model Y, and it vanishes ex-BEV | fig46 | mix decomposition; 2024-is-final Q&A armor |
+
+The productivity ladder (20→23→24) is the strongest Q&A sequence in the
+deck: projection, "isn't that just EVs?", "what's that spike / is 2024
+incomplete?" — each answered with a chart already loaded.
 
 ## 4c. Design-normalized productivity (the forward projection)
 

@@ -29,3 +29,17 @@ BEV share s backed out per year and class: MPG_ice = (1-s) / (1/MPG_all - s/MPGe
 - Tesla as the all-BEV proxy: adequate at fleet level (BEV <= 7.2%), coarser inside Car SUV 2023 (35.7% share, so proxy error is first-order there); non-Tesla BEVs average lower MPGe, meaning the true ICE line would sit very slightly higher.
 - Harmonic removal assumes EPA's gallons-first aggregation, per their methodology.
 - All stage-29 caveats (elasticity stability, log-linear extrapolation) still apply.
+
+## The 2024 endpoint dip, decomposed (Q&A note)
+
+2024 is FINAL data (is_preliminary applies to 2025 only, which these
+charts exclude), so incomplete collection is ruled out. The 2023->2024
+dip in the BEV-inclusive lines is the BEV share receding after the 2023
+tax-credit pull-forward: Sedan/Wagon in-class BEV share halved (14.6% ->
+7.1%), Car SUV eased 35.7% -> 30.5%. Normalization corrects design, not
+powertrain mix, so the blended lines inherit the swing. Ex-BEV, the
+Sedan/Wagon endpoint RISES (31.1 -> 31.8); Car SUV keeps a residual dip
+(31.8 -> 30.3) from two sources: the 2024 ICE crossover fleet got lighter
+and ~13% less powerful (the normalization docks that), and 2023 is where
+the Tesla-proxy subtraction is first-order (35.7% share), making that
+endpoint the widest-uncertainty point on the chart.
