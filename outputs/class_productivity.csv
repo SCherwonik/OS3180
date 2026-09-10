@@ -1,0 +1,356 @@
+year,class,mpg_norm,mpg_norm_projected
+1975,Sedan/Wagon,11.375,
+1976,Sedan/Wagon,12.449,
+1977,Sedan/Wagon,12.924,
+1978,Sedan/Wagon,13.194,
+1979,Sedan/Wagon,13.062,
+1980,Sedan/Wagon,13.455,
+1981,Sedan/Wagon,14.241,
+1982,Sedan/Wagon,14.74,
+1983,Sedan/Wagon,15.107,
+1984,Sedan/Wagon,15.464,
+1985,Sedan/Wagon,16.208,
+1986,Sedan/Wagon,16.628,
+1987,Sedan/Wagon,16.784,
+1988,Sedan/Wagon,17.303,
+1989,Sedan/Wagon,17.436,
+1990,Sedan/Wagon,17.798,
+1991,Sedan/Wagon,18.078,
+1992,Sedan/Wagon,18.484,
+1993,Sedan/Wagon,18.594,
+1994,Sedan/Wagon,18.811,
+1995,Sedan/Wagon,19.58,
+1996,Sedan/Wagon,19.627,
+1997,Sedan/Wagon,19.761,
+1998,Sedan/Wagon,20.002,
+1999,Sedan/Wagon,20.088,
+2000,Sedan/Wagon,20.249,
+2001,Sedan/Wagon,20.412,
+2002,Sedan/Wagon,20.731,
+2003,Sedan/Wagon,21.138,
+2004,Sedan/Wagon,21.464,
+2005,Sedan/Wagon,21.771,
+2006,Sedan/Wagon,22.397,
+2007,Sedan/Wagon,22.856,
+2008,Sedan/Wagon,23.249,
+2009,Sedan/Wagon,23.59,
+2010,Sedan/Wagon,24.561,
+2011,Sedan/Wagon,25.155,
+2012,Sedan/Wagon,25.999,
+2013,Sedan/Wagon,27.095,
+2014,Sedan/Wagon,27.406,
+2015,Sedan/Wagon,27.934,
+2016,Sedan/Wagon,28.155,
+2017,Sedan/Wagon,28.88,
+2018,Sedan/Wagon,30.518,
+2019,Sedan/Wagon,30.41,
+2020,Sedan/Wagon,31.326,
+2021,Sedan/Wagon,32.658,
+2022,Sedan/Wagon,34.343,
+2023,Sedan/Wagon,36.066,
+2024,Sedan/Wagon,33.487,
+2025,Sedan/Wagon,,34.306
+2026,Sedan/Wagon,,35.001
+2027,Sedan/Wagon,,35.711
+2028,Sedan/Wagon,,36.434
+2029,Sedan/Wagon,,37.173
+2030,Sedan/Wagon,,37.926
+2031,Sedan/Wagon,,38.694
+2032,Sedan/Wagon,,39.479
+2033,Sedan/Wagon,,40.279
+2034,Sedan/Wagon,,41.095
+2035,Sedan/Wagon,,41.928
+2036,Sedan/Wagon,,42.777
+2037,Sedan/Wagon,,43.644
+2038,Sedan/Wagon,,44.529
+2039,Sedan/Wagon,,45.431
+2040,Sedan/Wagon,,46.352
+2041,Sedan/Wagon,,47.291
+2042,Sedan/Wagon,,48.249
+2043,Sedan/Wagon,,49.227
+2044,Sedan/Wagon,,50.224
+2045,Sedan/Wagon,,51.242
+1975,Car SUV,7.65,
+1976,Car SUV,7.58,
+1977,Car SUV,8.769,
+1978,Car SUV,8.396,
+1979,Car SUV,8.65,
+1980,Car SUV,10.416,
+1981,Car SUV,11.203,
+1982,Car SUV,10.6,
+1983,Car SUV,12.492,
+1984,Car SUV,12.497,
+1985,Car SUV,12.994,
+1986,Car SUV,12.905,
+1987,Car SUV,13.751,
+1988,Car SUV,14.173,
+1989,Car SUV,14.365,
+1990,Car SUV,14.105,
+1991,Car SUV,13.821,
+1992,Car SUV,13.877,
+1993,Car SUV,14.451,
+1994,Car SUV,14.517,
+1995,Car SUV,14.454,
+1996,Car SUV,14.958,
+1997,Car SUV,15.068,
+1998,Car SUV,15.014,
+1999,Car SUV,15.296,
+2000,Car SUV,15.002,
+2001,Car SUV,15.911,
+2002,Car SUV,16.262,
+2003,Car SUV,16.812,
+2004,Car SUV,17.788,
+2005,Car SUV,17.764,
+2006,Car SUV,18.006,
+2007,Car SUV,18.969,
+2008,Car SUV,19.231,
+2009,Car SUV,20.038,
+2010,Car SUV,21.453,
+2011,Car SUV,21.504,
+2012,Car SUV,21.513,
+2013,Car SUV,22.726,
+2014,Car SUV,22.123,
+2015,Car SUV,22.695,
+2016,Car SUV,22.996,
+2017,Car SUV,23.264,
+2018,Car SUV,23.604,
+2019,Car SUV,23.964,
+2020,Car SUV,25.237,
+2021,Car SUV,28.604,
+2022,Car SUV,33.176,
+2023,Car SUV,42.626,
+2024,Car SUV,39.189,
+2025,Car SUV,,31.321
+2026,Car SUV,,32.127
+2027,Car SUV,,32.954
+2028,Car SUV,,33.802
+2029,Car SUV,,34.672
+2030,Car SUV,,35.564
+2031,Car SUV,,36.479
+2032,Car SUV,,37.418
+2033,Car SUV,,38.381
+2034,Car SUV,,39.368
+2035,Car SUV,,40.381
+2036,Car SUV,,41.42
+2037,Car SUV,,42.486
+2038,Car SUV,,43.58
+2039,Car SUV,,44.701
+2040,Car SUV,,45.851
+2041,Car SUV,,47.031
+2042,Car SUV,,48.241
+2043,Car SUV,,49.483
+2044,Car SUV,,50.756
+2045,Car SUV,,52.062
+1975,Truck SUV,8.172,
+1976,Truck SUV,8.616,
+1977,Truck SUV,9.458,
+1978,Truck SUV,9.21,
+1979,Truck SUV,7.932,
+1980,Truck SUV,9.231,
+1981,Truck SUV,10.019,
+1982,Truck SUV,10.561,
+1983,Truck SUV,10.924,
+1984,Truck SUV,10.795,
+1985,Truck SUV,11.138,
+1986,Truck SUV,11.548,
+1987,Truck SUV,12.054,
+1988,Truck SUV,12.181,
+1989,Truck SUV,12.468,
+1990,Truck SUV,12.371,
+1991,Truck SUV,12.898,
+1992,Truck SUV,12.831,
+1993,Truck SUV,13.359,
+1994,Truck SUV,13.18,
+1995,Truck SUV,13.057,
+1996,Truck SUV,13.702,
+1997,Truck SUV,13.757,
+1998,Truck SUV,13.818,
+1999,Truck SUV,14.216,
+2000,Truck SUV,14.318,
+2001,Truck SUV,14.854,
+2002,Truck SUV,15.371,
+2003,Truck SUV,15.753,
+2004,Truck SUV,16.021,
+2005,Truck SUV,16.397,
+2006,Truck SUV,16.628,
+2007,Truck SUV,17.635,
+2008,Truck SUV,17.999,
+2009,Truck SUV,18.622,
+2010,Truck SUV,19.008,
+2011,Truck SUV,19.814,
+2012,Truck SUV,20.088,
+2013,Truck SUV,20.683,
+2014,Truck SUV,21.049,
+2015,Truck SUV,21.609,
+2016,Truck SUV,21.739,
+2017,Truck SUV,22.107,
+2018,Truck SUV,22.437,
+2019,Truck SUV,23.022,
+2020,Truck SUV,23.383,
+2021,Truck SUV,23.829,
+2022,Truck SUV,24.019,
+2023,Truck SUV,24.853,
+2024,Truck SUV,25.704,
+2025,Truck SUV,,26.263
+2026,Truck SUV,,26.853
+2027,Truck SUV,,27.456
+2028,Truck SUV,,28.073
+2029,Truck SUV,,28.704
+2030,Truck SUV,,29.349
+2031,Truck SUV,,30.008
+2032,Truck SUV,,30.682
+2033,Truck SUV,,31.372
+2034,Truck SUV,,32.077
+2035,Truck SUV,,32.797
+2036,Truck SUV,,33.534
+2037,Truck SUV,,34.287
+2038,Truck SUV,,35.058
+2039,Truck SUV,,35.845
+2040,Truck SUV,,36.651
+2041,Truck SUV,,37.474
+2042,Truck SUV,,38.316
+2043,Truck SUV,,39.177
+2044,Truck SUV,,40.057
+2045,Truck SUV,,40.957
+1975,Pickup,7.23,
+1976,Pickup,7.572,
+1977,Pickup,8.429,
+1978,Pickup,8.233,
+1979,Pickup,7.95,
+1980,Pickup,9.006,
+1981,Pickup,9.6,
+1982,Pickup,9.926,
+1983,Pickup,9.888,
+1984,Pickup,9.693,
+1985,Pickup,10.038,
+1986,Pickup,10.239,
+1987,Pickup,10.417,
+1988,Pickup,10.653,
+1989,Pickup,10.697,
+1990,Pickup,10.873,
+1991,Pickup,11.024,
+1992,Pickup,10.927,
+1993,Pickup,11.195,
+1994,Pickup,11.402,
+1995,Pickup,11.272,
+1996,Pickup,11.809,
+1997,Pickup,12.322,
+1998,Pickup,12.145,
+1999,Pickup,12.244,
+2000,Pickup,12.337,
+2001,Pickup,12.357,
+2002,Pickup,12.598,
+2003,Pickup,12.723,
+2004,Pickup,13.384,
+2005,Pickup,13.804,
+2006,Pickup,13.93,
+2007,Pickup,14.45,
+2008,Pickup,14.94,
+2009,Pickup,15.381,
+2010,Pickup,15.749,
+2011,Pickup,16.466,
+2012,Pickup,16.84,
+2013,Pickup,17.482,
+2014,Pickup,18.257,
+2015,Pickup,18.428,
+2016,Pickup,18.525,
+2017,Pickup,18.829,
+2018,Pickup,19.39,
+2019,Pickup,19.058,
+2020,Pickup,19.263,
+2021,Pickup,19.34,
+2022,Pickup,19.883,
+2023,Pickup,20.602,
+2024,Pickup,20.549,
+2025,Pickup,,21.296
+2026,Pickup,,21.723
+2027,Pickup,,22.158
+2028,Pickup,,22.602
+2029,Pickup,,23.055
+2030,Pickup,,23.517
+2031,Pickup,,23.989
+2032,Pickup,,24.469
+2033,Pickup,,24.96
+2034,Pickup,,25.46
+2035,Pickup,,25.97
+2036,Pickup,,26.491
+2037,Pickup,,27.022
+2038,Pickup,,27.563
+2039,Pickup,,28.115
+2040,Pickup,,28.679
+2041,Pickup,,29.254
+2042,Pickup,,29.84
+2043,Pickup,,30.438
+2044,Pickup,,31.048
+2045,Pickup,,31.67
+1975,Minivan/Van,8.006,
+1976,Minivan/Van,8.566,
+1977,Minivan/Van,9.332,
+1978,Minivan/Van,8.915,
+1979,Minivan/Van,8.511,
+1980,Minivan/Van,9.856,
+1981,Minivan/Van,10.268,
+1982,Minivan/Van,10.321,
+1983,Minivan/Van,10.764,
+1984,Minivan/Van,10.824,
+1985,Minivan/Van,11.158,
+1986,Minivan/Van,11.732,
+1987,Minivan/Van,12.457,
+1988,Minivan/Van,12.912,
+1989,Minivan/Van,12.822,
+1990,Minivan/Van,13.008,
+1991,Minivan/Van,13.082,
+1992,Minivan/Van,13.252,
+1993,Minivan/Van,13.546,
+1994,Minivan/Van,13.507,
+1995,Minivan/Van,13.617,
+1996,Minivan/Van,14.386,
+1997,Minivan/Van,14.441,
+1998,Minivan/Van,15.039,
+1999,Minivan/Van,14.94,
+2000,Minivan/Van,15.181,
+2001,Minivan/Van,15.696,
+2002,Minivan/Van,16.043,
+2003,Minivan/Van,16.366,
+2004,Minivan/Van,17.104,
+2005,Minivan/Van,16.975,
+2006,Minivan/Van,17.319,
+2007,Minivan/Van,17.847,
+2008,Minivan/Van,18.028,
+2009,Minivan/Van,18.288,
+2010,Minivan/Van,17.965,
+2011,Minivan/Van,20.53,
+2012,Minivan/Van,20.582,
+2013,Minivan/Van,20.629,
+2014,Minivan/Van,20.886,
+2015,Minivan/Van,20.878,
+2016,Minivan/Van,21.074,
+2017,Minivan/Van,22.157,
+2018,Minivan/Van,22.785,
+2019,Minivan/Van,22.31,
+2020,Minivan/Van,22.881,
+2021,Minivan/Van,25.348,
+2022,Minivan/Van,24.659,
+2023,Minivan/Van,25.212,
+2024,Minivan/Van,26.097,
+2025,Minivan/Van,,26.605
+2026,Minivan/Van,,27.196
+2027,Minivan/Van,,27.801
+2028,Minivan/Van,,28.419
+2029,Minivan/Van,,29.051
+2030,Minivan/Van,,29.697
+2031,Minivan/Van,,30.357
+2032,Minivan/Van,,31.032
+2033,Minivan/Van,,31.722
+2034,Minivan/Van,,32.427
+2035,Minivan/Van,,33.148
+2036,Minivan/Van,,33.885
+2037,Minivan/Van,,34.638
+2038,Minivan/Van,,35.408
+2039,Minivan/Van,,36.195
+2040,Minivan/Van,,37.0
+2041,Minivan/Van,,37.822
+2042,Minivan/Van,,38.663
+2043,Minivan/Van,,39.523
+2044,Minivan/Van,,40.402
+2045,Minivan/Van,,41.3

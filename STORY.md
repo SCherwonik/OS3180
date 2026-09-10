@@ -453,6 +453,20 @@ folded in, no physics ceiling). Deck: backup slide 20; six backup slides
 (15–20) added overall, claim-titled per the instructor's titles-tell-the-
 story criterion — fig16, fig19, fig17, fig41, fig33, fig42.
 
+**figs 43–44, productivity by class and powertrain**
+(`30_class_productivity.py`) — fig42's normalization broken out. fig43:
+every Trends class (Sedan/Wagon, Car SUV, Truck SUV, Pickup, Minivan/Van)
+normalized to its own 2024 design grows a steady 2.0–2.6%/yr with
+log-linear R² 0.93–0.99 — the productivity law is class-universal; classes
+differ in level, not rate. Car SUV fastest (2.57%/yr, crossover
+hybridization + Model Y classed there); pickups slowest (2.00%). No
+'coupe' exists in Trends (two-doors fold into Sedan/Wagon; no two-door
+weight/HP series exists anywhere in the project — stated, not faked).
+fig44: the EV version via the only design-normalizable EV series (EPA
+Trends Tesla rows, 2012–2024, BEV-model weight elasticity −0.975):
+**+2.36%/yr — inside the same band as every combustion class.** One
+productivity clock, two energy carriers.
+
 ## 4. Suggested deck order
 
 1. fig1 (the arc) → fig16 (the algorithm agrees)
