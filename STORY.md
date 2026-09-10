@@ -443,6 +443,16 @@ $29k→$60k). "The era when electric meant expensive." Pairs with fig37
 datafiles were checked and carry no price column; current-2026 MSRPs
 remain the hand-fill scaffold.
 
+**fig42_productivity_projection** (`29_productivity.py`) — the
+design-normalized productivity series: fleet MPG re-expressed at constant
+2024 weight/HP via the stage-19 elasticities. The 1987–2004 trough
+vanishes; growth runs +1.94%/yr for 50 years (R² = 0.984); projected
+~35 MPG-equivalent by 2035 and 40–44 by 2045 under the two documented
+rates. Caveats in reports/29_productivity.md (elasticity stability, EV mix
+folded in, no physics ceiling). Deck: backup slide 20; six backup slides
+(15–20) added overall, claim-titled per the instructor's titles-tell-the-
+story criterion — fig16, fig19, fig17, fig41, fig33, fig42.
+
 ## 4. Suggested deck order
 
 1. fig1 (the arc) → fig16 (the algorithm agrees)

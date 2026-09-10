@@ -96,8 +96,40 @@ specification.
 | 13 | Limitations | cross-sectional; lab-vs-road; EVs separate | fig7 |
 | 14 | Conclusion (dark) | predict MPG → trends → consumer behavior | recap stats |
 
-Timing for 20 minutes: ~85 s/slide; spend 8 minutes on slides 7–10 (the
-equation block), keep 2–3 for questions off slide 14.
+Timing: 25-minute ceiling → ~100 s/slide across the 14 core slides; spend
+8–9 minutes on slides 7–10 (the equation block), keep 3–4 for questions
+off slide 14. Grading note: titles are graded as the story — read titles
+1→14 aloud as a paragraph to test the through-line.
+
+## 4b. Backup slides (15–20, shown only if asked)
+
+| # | Backup claim | Visual | Fields |
+|---|---|---|---|
+| 15 | The eras were found by algorithm, not by eye | fig16 | changepoints, BIC, Chow |
+| 16 | We audited our own story: gas prices explain almost none of the mix shift | fig19 | the differenced audit; also kills cheap-credit |
+| 17 | Buyers systematically choose better MPG than the catalog median | fig17 | KS, Wasserstein, Gini |
+| 18 | Sticker history: the era when electric meant expensive | fig41 | MSRP 2015–2020 vs 2026 ATP |
+| 19 | Driving on electrons has cost half as much for a decade | fig33 | cost-per-mile trends |
+| 20 | Hold design constant and the trend says ~44 MPG by 2045 | fig42 | the productivity projection |
+
+## 4c. Design-normalized productivity (the forward projection)
+
+MPG_norm(t) = fleet MPG × (wt_t/wt₂₀₂₄)^0.304 × (hp_t/hp₂₀₂₄)^0.483 —
+each year's technology expressed at 2024's fleet weight and power, using
+this deck's own elasticities. Findings (`29_productivity.py`,
+`reports/29_productivity.md`, fig42):
+
+- The 1987–2004 trough **vanishes**: normalized productivity runs
+  9.4 → 13.7 → 17.2 → 27.2, monotone.
+- Growth is near-perfectly exponential: **+1.94%/yr for 50 years,
+  R² = 0.984** (2005+ rate: +2.27%/yr).
+- Projection at constant 2024 design: ~35 by 2035, **40–44 by 2045**
+  (bracketed by the two rates).
+- Caveats, in presentation order: 2024 elasticities assumed stable across
+  eras; fleet MPG folds EV energy-equivalents in, so late "productivity"
+  is partly electrification mix; log-linear extrapolation with no physics
+  ceiling; the CI band is fit uncertainty only — scenario uncertainty
+  dominates.
 
 ## 5. The forward thesis (slide 14 talk track)
 

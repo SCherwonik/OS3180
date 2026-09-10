@@ -99,8 +99,11 @@ represented by a single number.
 12f. `external/msrp_model_level.csv` -- SCAFFOLD, NOT DATA (for CURRENT 2026 models, which the CarAPI sample does not cover): 22 representative models (8 BEV, 2 FCEV, 5 hybrid, 7 gasoline) with blank msrp/destination-fee/source-url/date columns for manual fill from manufacturer sites. No per-model MSRP exists in any public bulk dataset consulted (EPA, fueleconomy.gov, NHTSA vPIC); prices must be hand-entered with a citation per row before any analysis touches this file.
 13. `05_charts.py`, `07_charts_extended.py`, `09_charts_extra.py`, `11_charts_stats.py`, `13_charts_validation.py`, `15_charts_more.py`, `18_charts_insurance.py`, `20_charts_final.py` -> `charts/fig1..fig31`
 
+13. `29_productivity.py` -> `outputs/productivity.csv`, `reports/29_productivity.md`, `charts/fig42_productivity_projection.png` (design-normalized MPG productivity + 2025-2045 projection; derived entirely from analysis_clean.csv and the stage-19 elasticities, no new raw inputs)
+
 Narrative index: see `STORY.md` for the full story log, figure inventory, deck
-order, ideas backlog, and caveats canon.
+order, ideas backlog, and caveats canon. `SHORTSTORY.md` is the deck-focused
+companion (equation, slides, backups).
 
 Every stage is idempotent; identical inputs reproduce identical outputs
 (verified by md5 across repeated runs during the build).
