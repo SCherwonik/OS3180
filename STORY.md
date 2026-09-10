@@ -467,6 +467,17 @@ Trends Tesla rows, 2012–2024, BEV-model weight elasticity −0.975):
 **+2.36%/yr — inside the same band as every combustion class.** One
 productivity clock, two energy carriers.
 
+**figs 45–46, the ex-BEV twins** (`31_ice_productivity.py`) — figs 42/43
+rebuilt without battery-electrics. BEVs are backed OUT of the aggregates
+(harmonic for MPG, arithmetic for weight/HP, Tesla Trends series as
+proxy), since Trends rows cannot be filtered. Findings: combustion alone
+still runs **+1.86%/yr normalized for 50 years (R² = 0.984)** → 39
+MPG-equivalent by 2045 at either rate; the Car SUV spike vanishes (its
+2020–2023 jump was Model Y-era mix, BEV share 0.6% → 35.7% in-class),
+and the classes converge to 1.9–2.2%/yr. The fig42-vs-fig45 recent-rate
+gap (2.27 vs 1.87%/yr) is the measured electrification contribution to
+fleet productivity: ~0.4pp/yr, worth ~5 MPG-equivalent by 2045.
+
 ## 4. Suggested deck order
 
 1. fig1 (the arc) → fig16 (the algorithm agrees)

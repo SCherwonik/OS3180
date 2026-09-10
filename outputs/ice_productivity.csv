@@ -1,0 +1,301 @@
+scope,year,mpg_norm_ice
+fleet,1975,9.662
+fleet,1976,10.453
+fleet,1977,11.029
+fleet,1978,11.067
+fleet,1979,10.837
+fleet,1980,11.553
+fleet,1981,12.242
+fleet,1982,12.62
+fleet,1983,12.848
+fleet,1984,12.978
+fleet,1985,13.507
+fleet,1986,13.811
+fleet,1987,14.059
+fleet,1988,14.405
+fleet,1989,14.491
+fleet,1990,14.761
+fleet,1991,14.944
+fleet,1992,15.125
+fleet,1993,15.276
+fleet,1994,15.283
+fleet,1995,15.661
+fleet,1996,15.954
+fleet,1997,16.068
+fleet,1998,16.148
+fleet,1999,16.272
+fleet,2000,16.407
+fleet,2001,16.618
+fleet,2002,16.928
+fleet,2003,17.235
+fleet,2004,17.617
+fleet,2005,18.022
+fleet,2006,18.429
+fleet,2007,19.06
+fleet,2008,19.453
+fleet,2009,20.018
+fleet,2010,20.6
+fleet,2011,21.256
+fleet,2012,21.819
+fleet,2013,22.579
+fleet,2014,22.826
+fleet,2015,23.16
+fleet,2016,23.281
+fleet,2017,23.654
+fleet,2018,24.129
+fleet,2019,24.239
+fleet,2020,24.547
+fleet,2021,24.91
+fleet,2022,25.024
+fleet,2023,25.376
+fleet,2024,25.714
+Sedan/Wagon,1975,11.889
+Sedan/Wagon,1976,13.011
+Sedan/Wagon,1977,13.507
+Sedan/Wagon,1978,13.79
+Sedan/Wagon,1979,13.652
+Sedan/Wagon,1980,14.063
+Sedan/Wagon,1981,14.885
+Sedan/Wagon,1982,15.406
+Sedan/Wagon,1983,15.789
+Sedan/Wagon,1984,16.162
+Sedan/Wagon,1985,16.94
+Sedan/Wagon,1986,17.379
+Sedan/Wagon,1987,17.542
+Sedan/Wagon,1988,18.085
+Sedan/Wagon,1989,18.223
+Sedan/Wagon,1990,18.602
+Sedan/Wagon,1991,18.894
+Sedan/Wagon,1992,19.318
+Sedan/Wagon,1993,19.434
+Sedan/Wagon,1994,19.66
+Sedan/Wagon,1995,20.464
+Sedan/Wagon,1996,20.513
+Sedan/Wagon,1997,20.653
+Sedan/Wagon,1998,20.905
+Sedan/Wagon,1999,20.995
+Sedan/Wagon,2000,21.164
+Sedan/Wagon,2001,21.334
+Sedan/Wagon,2002,21.667
+Sedan/Wagon,2003,22.093
+Sedan/Wagon,2004,22.433
+Sedan/Wagon,2005,22.755
+Sedan/Wagon,2006,23.408
+Sedan/Wagon,2007,23.888
+Sedan/Wagon,2008,24.299
+Sedan/Wagon,2009,24.655
+Sedan/Wagon,2010,25.67
+Sedan/Wagon,2011,26.291
+Sedan/Wagon,2012,27.109
+Sedan/Wagon,2013,28.121
+Sedan/Wagon,2014,28.451
+Sedan/Wagon,2015,28.81
+Sedan/Wagon,2016,29.079
+Sedan/Wagon,2017,29.6
+Sedan/Wagon,2018,30.543
+Sedan/Wagon,2019,30.529
+Sedan/Wagon,2020,30.923
+Sedan/Wagon,2021,31.535
+Sedan/Wagon,2022,31.266
+Sedan/Wagon,2023,31.06
+Sedan/Wagon,2024,31.754
+Car SUV,1975,9.305
+Car SUV,1976,9.219
+Car SUV,1977,10.665
+Car SUV,1978,10.211
+Car SUV,1979,10.521
+Car SUV,1980,12.668
+Car SUV,1981,13.625
+Car SUV,1982,12.893
+Car SUV,1983,15.193
+Car SUV,1984,15.2
+Car SUV,1985,15.803
+Car SUV,1986,15.695
+Car SUV,1987,16.724
+Car SUV,1988,17.238
+Car SUV,1989,17.471
+Car SUV,1990,17.155
+Car SUV,1991,16.809
+Car SUV,1992,16.878
+Car SUV,1993,17.575
+Car SUV,1994,17.656
+Car SUV,1995,17.579
+Car SUV,1996,18.193
+Car SUV,1997,18.325
+Car SUV,1998,18.26
+Car SUV,1999,18.603
+Car SUV,2000,18.245
+Car SUV,2001,19.351
+Car SUV,2002,19.779
+Car SUV,2003,20.447
+Car SUV,2004,21.635
+Car SUV,2005,21.605
+Car SUV,2006,21.899
+Car SUV,2007,23.07
+Car SUV,2008,23.389
+Car SUV,2009,24.37
+Car SUV,2010,26.091
+Car SUV,2011,26.154
+Car SUV,2012,26.164
+Car SUV,2013,27.61
+Car SUV,2014,26.878
+Car SUV,2015,27.602
+Car SUV,2016,27.636
+Car SUV,2017,27.889
+Car SUV,2018,28.352
+Car SUV,2019,28.913
+Car SUV,2020,29.169
+Car SUV,2021,29.916
+Car SUV,2022,30.965
+Car SUV,2023,31.828
+Car SUV,2024,30.331
+Truck SUV,1975,8.273
+Truck SUV,1976,8.722
+Truck SUV,1977,9.575
+Truck SUV,1978,9.324
+Truck SUV,1979,8.03
+Truck SUV,1980,9.345
+Truck SUV,1981,10.143
+Truck SUV,1982,10.691
+Truck SUV,1983,11.059
+Truck SUV,1984,10.928
+Truck SUV,1985,11.276
+Truck SUV,1986,11.691
+Truck SUV,1987,12.203
+Truck SUV,1988,12.331
+Truck SUV,1989,12.622
+Truck SUV,1990,12.524
+Truck SUV,1991,13.058
+Truck SUV,1992,12.989
+Truck SUV,1993,13.524
+Truck SUV,1994,13.343
+Truck SUV,1995,13.219
+Truck SUV,1996,13.872
+Truck SUV,1997,13.927
+Truck SUV,1998,13.989
+Truck SUV,1999,14.392
+Truck SUV,2000,14.495
+Truck SUV,2001,15.038
+Truck SUV,2002,15.561
+Truck SUV,2003,15.948
+Truck SUV,2004,16.219
+Truck SUV,2005,16.6
+Truck SUV,2006,16.834
+Truck SUV,2007,17.853
+Truck SUV,2008,18.222
+Truck SUV,2009,18.853
+Truck SUV,2010,19.243
+Truck SUV,2011,20.059
+Truck SUV,2012,20.336
+Truck SUV,2013,20.939
+Truck SUV,2014,21.309
+Truck SUV,2015,21.877
+Truck SUV,2016,22.008
+Truck SUV,2017,22.381
+Truck SUV,2018,22.69
+Truck SUV,2019,23.233
+Truck SUV,2020,23.619
+Truck SUV,2021,23.977
+Truck SUV,2022,24.036
+Truck SUV,2023,24.395
+Truck SUV,2024,24.874
+Pickup,1975,7.24
+Pickup,1976,7.583
+Pickup,1977,8.441
+Pickup,1978,8.245
+Pickup,1979,7.961
+Pickup,1980,9.019
+Pickup,1981,9.614
+Pickup,1982,9.94
+Pickup,1983,9.902
+Pickup,1984,9.707
+Pickup,1985,10.052
+Pickup,1986,10.254
+Pickup,1987,10.432
+Pickup,1988,10.669
+Pickup,1989,10.712
+Pickup,1990,10.889
+Pickup,1991,11.04
+Pickup,1992,10.942
+Pickup,1993,11.211
+Pickup,1994,11.419
+Pickup,1995,11.288
+Pickup,1996,11.827
+Pickup,1997,12.34
+Pickup,1998,12.163
+Pickup,1999,12.262
+Pickup,2000,12.355
+Pickup,2001,12.375
+Pickup,2002,12.616
+Pickup,2003,12.742
+Pickup,2004,13.403
+Pickup,2005,13.824
+Pickup,2006,13.95
+Pickup,2007,14.471
+Pickup,2008,14.962
+Pickup,2009,15.403
+Pickup,2010,15.772
+Pickup,2011,16.49
+Pickup,2012,16.865
+Pickup,2013,17.508
+Pickup,2014,18.284
+Pickup,2015,18.454
+Pickup,2016,18.552
+Pickup,2017,18.856
+Pickup,2018,19.418
+Pickup,2019,19.085
+Pickup,2020,19.291
+Pickup,2021,19.368
+Pickup,2022,19.645
+Pickup,2023,20.14
+Pickup,2024,20.226
+Minivan/Van,1975,8.006
+Minivan/Van,1976,8.566
+Minivan/Van,1977,9.332
+Minivan/Van,1978,8.915
+Minivan/Van,1979,8.511
+Minivan/Van,1980,9.856
+Minivan/Van,1981,10.268
+Minivan/Van,1982,10.321
+Minivan/Van,1983,10.764
+Minivan/Van,1984,10.824
+Minivan/Van,1985,11.158
+Minivan/Van,1986,11.732
+Minivan/Van,1987,12.457
+Minivan/Van,1988,12.912
+Minivan/Van,1989,12.822
+Minivan/Van,1990,13.008
+Minivan/Van,1991,13.082
+Minivan/Van,1992,13.252
+Minivan/Van,1993,13.546
+Minivan/Van,1994,13.507
+Minivan/Van,1995,13.617
+Minivan/Van,1996,14.386
+Minivan/Van,1997,14.441
+Minivan/Van,1998,15.039
+Minivan/Van,1999,14.94
+Minivan/Van,2000,15.181
+Minivan/Van,2001,15.696
+Minivan/Van,2002,16.043
+Minivan/Van,2003,16.366
+Minivan/Van,2004,17.104
+Minivan/Van,2005,16.975
+Minivan/Van,2006,17.319
+Minivan/Van,2007,17.847
+Minivan/Van,2008,18.028
+Minivan/Van,2009,18.288
+Minivan/Van,2010,17.965
+Minivan/Van,2011,20.53
+Minivan/Van,2012,20.582
+Minivan/Van,2013,20.629
+Minivan/Van,2014,20.886
+Minivan/Van,2015,20.878
+Minivan/Van,2016,21.074
+Minivan/Van,2017,22.157
+Minivan/Van,2018,22.785
+Minivan/Van,2019,22.31
+Minivan/Van,2020,22.881
+Minivan/Van,2021,25.348
+Minivan/Van,2022,24.659
+Minivan/Van,2023,25.212
+Minivan/Van,2024,26.097
