@@ -1,0 +1,13 @@
+kind,label,atp_usd,note,source
+category,Industry (all new vehicles),49855,"July 2026; MSRP average $51,621; incentives 6.4% of ATP",[1]
+category,EV (battery electric),56126,"incentives $6,626 = 11.8% of ATP; premium over ICE+ $6,477",[1][2]
+category,"ICE+ (non-EV, incl. hybrids)",49649,"derived: EV ATP minus the published $6,477 EV-over-ICE+ premium",[2]
+brand,Tesla,53891,"incentives $5,599 = 10.4% of ATP",[1]
+model,Tesla Model Y,52500,"approximate, as published",[2]
+model,Tesla Model 3,50500,"approximate, as published",[2]
+segment,Full-size pickup truck,66980,+2.8% YoY,[1]
+segment,Midsize SUV,50144,+2.4% YoY,[1]
+segment,Compact SUV,37745,+2.7% YoY,[1]
+segment,Subcompact SUV,31052,+1.1% YoY,[1]
+segment,Compact car,27904,+2.6% YoY,[1]
+used,Used EV (listing price),37832,"premium over used ICE+ $2,967",[2]

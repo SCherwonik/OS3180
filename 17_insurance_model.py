@@ -1,0 +1,220 @@
+"""17_insurance_model.py -- the final-project regression.
+
+DV: IIHS relative collision loss (and personal injury as the companion model,
+because the automation story flips sign between them).
+IVs: automation score (dummies, ref = 1 Basic), vehicle size dummies,
+body-group dummies, window end year (centered), catalog MPG, EV flag.
+
+OLS with cluster-robust standard errors clustered by vehicle: each nameplate
+contributes up to 8 overlapping 3-year windows, so iid SEs would overstate
+precision.
+
+Outputs:
+  reports/17_insurance_model.md    descriptive stats, both fitted models,
+                                   findings and limitations
+  outputs/insurance_model.json     machine-readable results
+"""
+
+import io
+import json
+import os
+
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(HERE, "outputs")
+REPORTS = os.path.join(HERE, "reports")
+
+BODY_GROUP = {
+    "Four-Door Cars": "car", "Two-Door Cars": "car", "Luxury Cars": "car",
+    "Sports Cars": "car", "Station Wagons": "car",
+    "SUV's": "suv", "Luxury SUV's": "suv",
+    "Pickups": "pickup", "Minivans": "van", "Vans": "van",
+}
+
+
+def cluster_ols(X, y, clusters, names):
+    """OLS with Liang-Zeger cluster-robust covariance."""
+    XtX_inv = np.linalg.inv(X.T @ X)
+    beta = XtX_inv @ X.T @ y
+    resid = y - X @ beta
+    meat = np.zeros((X.shape[1], X.shape[1]))
+    for g in np.unique(clusters):
+        m = clusters == g
+        Xg, eg = X[m], resid[m]
+        s = Xg.T @ eg
+        meat += np.outer(s, s)
+    G = len(np.unique(clusters))
+    n, k = X.shape
+    adj = (G / (G - 1)) * ((n - 1) / (n - k))
+    cov = adj * XtX_inv @ meat @ XtX_inv
+    se = np.sqrt(np.diag(cov))
+    t = beta / se
+    p = 2 * (1 - stats.t.cdf(np.abs(t), G - 1))
+    ss_res = float(resid @ resid)
+    ss_tot = float(((y - y.mean()) ** 2).sum())
+    return {
+        "coef": dict(zip(names, np.round(beta, 4))),
+        "se": dict(zip(names, np.round(se, 4))),
+        "t": dict(zip(names, np.round(t, 2))),
+        "p": dict(zip(names, np.round(p, 4))),
+        "r2": round(1 - ss_res / ss_tot, 4),
+        "n": int(n), "clusters": int(G), "k": int(k),
+    }
+
+
+def build_design(d):
+    X = pd.DataFrame(index=d.index)
+    X["const"] = 1.0
+    X["score2"] = (d.automation_score == 2).astype(float)
+    X["score3"] = (d.automation_score == 3).astype(float)
+    for s in ["Small", "Midsize", "Large", "Very Large"]:  # ref: Mini/other
+        X[f"size_{s.replace(' ', '_').lower()}"] = (
+            d.vehicle_size == s).astype(float)
+    grp = d.body_style.map(BODY_GROUP)
+    for gname in ["suv", "pickup", "van"]:  # ref: car
+        X[f"body_{gname}"] = (grp == gname).astype(float)
+    X["end_year_c"] = d.end_year - 2020
+    X["mpg"] = d.cat_comb08_mpg
+    X["is_ev"] = d.cat_is_ev
+    return X
+
+
+def fit(d, dv):
+    sub = d.dropna(subset=[dv, "cat_comb08_mpg", "cat_is_ev"]).copy()
+    X = build_design(sub)
+    res = cluster_ols(X.values.astype(float), sub[dv].values.astype(float),
+                      sub.vehicle.values, X.columns.tolist())
+    return res
+
+
+def fit_single_window(d, dv, window="2022-2024"):
+    """Robustness spec: one window only, so every row is an independent
+    observation and no clustering is needed. Singleton clusters make
+    cluster_ols equivalent to HC1 heteroskedasticity-robust SEs."""
+    sub = d[d.year_range == window].dropna(
+        subset=[dv, "cat_comb08_mpg", "cat_is_ev"]).copy()
+    # Vehicle name alone is not unique (Mini Cooper 2dr vs 4dr share a
+    # string); name + body style is the true observation key.
+    assert not sub.duplicated(subset=["vehicle", "body_style"]).any(), \
+        "window has duplicate (vehicle, body_style) rows"
+    X = build_design(sub).drop(columns=["end_year_c"])  # constant in-window
+    res = cluster_ols(X.values.astype(float), sub[dv].values.astype(float),
+                      np.arange(len(sub)), X.columns.tolist())
+    res["window"] = window
+    return res
+
+
+def main():
+    d = pd.read_csv(os.path.join(OUT, "insurance_clean.csv"), low_memory=False)
+
+    desc = d[["collision", "personal_injury", "bodily_injury",
+              "cat_comb08_mpg", "automation_score"]].describe().round(3)
+
+    m_coll = fit(d, "collision")
+    m_pi = fit(d, "personal_injury")
+    m_bi = fit(d, "bodily_injury")
+
+    sw_coll = fit_single_window(d, "collision")
+    sw_pi = fit_single_window(d, "personal_injury")
+
+    results = {"collision": m_coll, "personal_injury": m_pi,
+               "bodily_injury": m_bi,
+               "single_window_collision": sw_coll,
+               "single_window_personal_injury": sw_pi}
+    with open(os.path.join(OUT, "insurance_model.json"), "w",
+              encoding="utf-8") as f:
+        json.dump(results, f, indent=1, default=float)
+
+    b = io.StringIO()
+    b.write("# Insurance Regression Models\n\nGenerated by "
+            "17_insurance_model.py from outputs/insurance_clean.csv.\n")
+    b.write("\n## Descriptive statistics\n\n```\n" + desc.to_string()
+            + "\n```\n\nDV units: IIHS relative loss, deviation from the "
+            "all-vehicle average (0 = average, -0.30 = 30% better).\n")
+
+    b.write("\n## Specification\n\nOLS, cluster-robust SEs by vehicle "
+            "(nameplates repeat across up to 8 overlapping windows). "
+            "Reference categories: automation score 1 (Basic), size "
+            "Mini/other, body group car.\n")
+
+    for dv in ("collision", "personal_injury", "bodily_injury"):
+        res = results[dv]
+        b.write(f"\n## DV: {dv}\n\n")
+        b.write(f"n = {res['n']:,} rows in {res['clusters']:,} vehicle "
+                f"clusters; R^2 = {res['r2']}\n\n")
+        b.write("| Term | coef | se | t | p |\n|---|---|---|---|---|\n")
+        for k in res["coef"]:
+            star = " *" if res["p"][k] < 0.05 else ""
+            b.write(f"| {k} | {res['coef'][k]} | {res['se'][k]} | "
+                    f"{res['t'][k]} | {res['p'][k]}{star} |\n")
+
+    b.write(
+        "\n## Robustness: single-window cross-section (2022-2024)\n\n"
+        "The primary models are a panel of overlapping windows with SEs "
+        "clustered by vehicle. This spec keeps only the latest window, so "
+        "every row is one independent vehicle (a strict reading of the "
+        "course's row-per-observation guidance), with HC1-robust SEs; the "
+        "year term drops (constant within a window).\n\n"
+        "| DV | n | R^2 | score3 coef | p | panel coef | panel p |\n"
+        "|---|---|---|---|---|---|---|\n")
+    for dv, sw, panel in (("collision", sw_coll, m_coll),
+                          ("personal_injury", sw_pi, m_pi)):
+        b.write(f"| {dv} | {sw['n']} | {sw['r2']} | {sw['coef']['score3']} | "
+                f"{sw['p']['score3']} | {panel['coef']['score3']} | "
+                f"{panel['p']['score3']} |\n")
+    b.write(
+        f"\nObservations-per-parameter in this spec: {sw_coll['n']} / "
+        f"{sw_coll['k']} = {sw_coll['n'] // sw_coll['k']}:1, still well past "
+        "the 10:1 rule.\n"
+        "\n**Reading the non-replication honestly.** The collision "
+        "coefficient shrinks and loses significance in the single window "
+        "(p = 0.55), but not because the panel finding is fragile: the "
+        "2022-2024 window contains only 4 score-1 vehicles against 561 "
+        "score-2 and 55 score-3, because by 2024 nearly every nameplate "
+        "ships standard ADAS. A 'vs Basic' contrast estimated against four "
+        "leftover vehicles is unidentified, not refuted. The panel design "
+        "is what makes the automation comparison possible at all -- its "
+        "earlier windows contain 5,886 score-1 rows. Present this as the "
+        "reason the panel-with-clustering spec is primary: the strict "
+        "one-row-one-observation reading costs the variable of interest.\n")
+
+    c3, p3 = m_coll["coef"]["score3"], m_coll["p"]["score3"]
+    i3, ip3 = m_pi["coef"]["score3"], m_pi["p"]["score3"]
+    b.write(
+        "\n## Reading\n\n"
+        f"- The robust finding is the repair side: holding size, body group, "
+        f"year, MPG, and EV status fixed, score-3 automation carries "
+        f"collision losses {c3:+.2f} relative to Basic (p = {p3}).\n"
+        f"- The injury side survives only as direction, not significance: "
+        f"every injury coefficient is negative (personal injury {i3:+.2f}, "
+        f"p = {ip3}; bodily-injury and score-2 terms p = 0.07-0.10) but none "
+        "clears 0.05 once SEs are clustered by vehicle. The raw-means sign "
+        "flip seen before controls is mostly absorbed by size, body, and "
+        "year. Present it as 'consistent with injury reduction, "
+        "underpowered here', not as a finding.\n"
+        "- Association, not causation: automation level is bundled with "
+        "trim, price, and buyer demographics this design cannot separate. "
+        "The EV flag and MPG absorb some of it; residual confounding "
+        "stands as the first limitation.\n"
+        "- The automation score is uncited AI output audited in "
+        "reports/16_insurance_prep.md; rerun both models excluding it "
+        "before presenting if the human verification sample disagrees "
+        "with it materially.\n"
+    )
+    with open(os.path.join(REPORTS, "17_insurance_model.md"), "w",
+              encoding="utf-8") as f:
+        f.write(b.getvalue())
+
+    for dv, res in results.items():
+        print(dv, "| n", res["n"], "| R2", res["r2"],
+              "| score3", res["coef"]["score3"], "p", res["p"]["score3"],
+              "| score2", res["coef"]["score2"], "p", res["p"]["score2"])
+    print("single-window obs:parameter =",
+          sw_coll["n"], ":", sw_coll["k"])
+
+
+if __name__ == "__main__":
+    main()

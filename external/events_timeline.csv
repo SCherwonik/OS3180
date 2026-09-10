@@ -1,0 +1,17 @@
+year,date,event,type,source
+1964,1963-12-04,'Chicken tax': 25% tariff on imported light trucks,regulation,Presidential Proclamation 3564
+1973,1973-10,OPEC oil embargo begins,market,"U.S. State Dept. Office of the Historian, Milestones 1969-1976"
+1974,1974-01-02,55 mph national speed limit imposed,regulation,"Emergency Highway Energy Conservation Act, Pub. L. 93-239"
+1975,1975-12-22,Energy Policy and Conservation Act creates CAFE,regulation,Pub. L. 94-163
+1979,1979-01,Iranian revolution; second oil shock,market,EIA petroleum chronology
+1985,1985,"Passenger-car CAFE standard reaches 27.5 MPG, then frozen",regulation,NHTSA CAFE standards table
+2007,2007-12-19,Energy Independence and Security Act: 35 MPG by 2020,regulation,Pub. L. 110-140
+2008,2008,EPA adopts 5-cycle fuel-economy labels,regulation,EPA 40 CFR Part 600 label rule
+2010,2010-12,"First mass-market plug-ins delivered (Leaf, Volt)",market,Nissan/GM December 2010 delivery announcements
+2012,2012-11-02,EPA announces Hyundai/Kia fuel-economy restatement,scandal,"EPA press release, Nov. 2, 2012"
+2013,2013-08,Ford lowers C-Max hybrid label from 47 to 43 MPG,scandal,"EPA/Ford announcement, Aug. 2013"
+2014,2014-06-12,Ford relabels six 2013-14 models downward,scandal,"Ford Motor Co. announcement, June 12, 2014"
+1995,1995-11-28,55 mph national speed limit repealed,regulation,"National Highway System Designation Act, Pub. L. 104-59"
+2015,2015-09-18,EPA issues VW notice of violation (Dieselgate),scandal,https://www.epa.gov/vw
+2020,2020-03,COVID-19 production shutdowns,market,BEA/industry production records
+2022,2022-08-16,Inflation Reduction Act revamps EV tax credits,regulation,Pub. L. 117-169

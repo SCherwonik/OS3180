@@ -1,0 +1,93 @@
+raw_value,source_file,source_column,n_rows,canonical_make,canonical_parent,map_method,review_note
+Jaguar Land Rover Limited,model-year-2024-footprint-data.csv,CAFE_MFR_NM,119,Jaguar,,review,Tata-owned JLR; separate CAFE manufacturer
+"Volvo Car USA,  LLC",model-year-2024-footprint-data.csv,CAFE_MFR_NM,40,Volvo,,review,Geely-era Volvo legal name (note double space)
+"Maserati North America, Inc.",model-year-2024-footprint-data.csv,CAFE_MFR_NM,16,Maserati,,review,see Maserati
+Aston Martin Lagonda,model-year-2024-footprint-data.csv,CAFE_MFR_NM,4,Aston Martin,,review,see Aston Martin
+Bugatti Rimac LLC,model-year-2024-footprint-data.csv,CAFE_MFR_NM,1,Bugatti Rimac LLC,,review,see Bugatti Rimac
+Land Rover,model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,92,Land Rover,,review,"Ford 2000-2008, Tata/JLR after"
+"Volvo Cars of North America, LLC",model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,34,Volvo,,review,Volvo division name in footprint file
+MASERATI,model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,32,Maserati,,review,see Maserati
+Jaguar,model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,27,Jaguar,,review,"Ford 1990-2008, Tata/JLR after"
+Aston Martin Lagonda Ltd,model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,4,Aston Martin,,review,see Aston Martin
+Bugatti Rimac,model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,2,Bugatti Rimac,,review,Rimac-majority JV with Porsche 45% since 2021; not a clean VW rollup
+Certification,model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,2,Certification,,review,junk division label in footprint file; resolve via CAFE_MFR_NM on those rows
+Lotus Cars Ltd,model-year-2024-footprint-data.csv,FOOTPRINT_DIVISION_NM,1,Lotus Cars Ltd,,review,see Lotus
+Jaguar Land Rover Limited,model-year-2024-footprint-data.csv,FOOTPRINT_MFR_NM,119,Jaguar,,review,Tata-owned JLR; separate CAFE manufacturer
+"Volvo Car USA,  LLC",model-year-2024-footprint-data.csv,FOOTPRINT_MFR_NM,39,Volvo,,review,Geely-era Volvo legal name (note double space)
+"Maserati North America, Inc.",model-year-2024-footprint-data.csv,FOOTPRINT_MFR_NM,32,Maserati,,review,see Maserati
+Aston Martin Lagonda,model-year-2024-footprint-data.csv,FOOTPRINT_MFR_NM,4,Aston Martin,,review,see Aston Martin
+Bugatti Rimac LLC,model-year-2024-footprint-data.csv,FOOTPRINT_MFR_NM,2,Bugatti Rimac LLC,,review,see Bugatti Rimac
+Lotus Cars Ltd,model-year-2024-footprint-data.csv,FOOTPRINT_MFR_NM,1,Lotus Cars Ltd,,review,see Lotus
+Jaguar Land Rover Limited,model-year-2024-fuel-economy-and-technology-data.csv,CAFE Mfr Name,64,Jaguar,,review,Tata-owned JLR; separate CAFE manufacturer
+"Volvo Car USA,  LLC",model-year-2024-fuel-economy-and-technology-data.csv,CAFE Mfr Name,49,Volvo,,review,Geely-era Volvo legal name (note double space)
+"Maserati North America, Inc.",model-year-2024-fuel-economy-and-technology-data.csv,CAFE Mfr Name,22,Maserati,,review,see Maserati
+Aston Martin Lagonda,model-year-2024-fuel-economy-and-technology-data.csv,CAFE Mfr Name,4,Aston Martin,,review,see Aston Martin
+Jaguar Land Rover Limited,model-year-2024-fuel-economy-and-technology-data.csv,Carline Mfr Name,64,Jaguar,,review,Tata-owned JLR; separate CAFE manufacturer
+"Volvo Car USA,  LLC",model-year-2024-fuel-economy-and-technology-data.csv,Carline Mfr Name,46,Volvo,,review,Geely-era Volvo legal name (note double space)
+"Maserati North America, Inc.",model-year-2024-fuel-economy-and-technology-data.csv,Carline Mfr Name,44,Maserati,,review,see Maserati
+Aston Martin Lagonda,model-year-2024-fuel-economy-and-technology-data.csv,Carline Mfr Name,4,Aston Martin,,review,see Aston Martin
+Lotus Cars Ltd,model-year-2024-fuel-economy-and-technology-data.csv,Carline Mfr Name,3,Lotus Cars Ltd,,review,see Lotus
+Bugatti Rimac LLC,model-year-2024-fuel-economy-and-technology-data.csv,Carline Mfr Name,2,Bugatti Rimac LLC,,review,see Bugatti Rimac
+Land Rover,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,45,Land Rover,,review,"Ford 2000-2008, Tata/JLR after"
+MASERATI,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,44,Maserati,,review,see Maserati
+Volvo,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,36,Volvo,,review,"Ford 1999-2010, Geely after; separate CAFE manufacturer"
+Jaguar,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,19,Jaguar,,review,"Ford 1990-2008, Tata/JLR after"
+Manufacturing Plant,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,8,Manufacturing Plant,,review,junk division short-name in MY2024 FE file; resolve via CAFE Mfr Name on those rows
+AM,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,4,AM,,review,division short-name in Aston Martin rows of MY2024 FE file
+Lotus,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,3,Lotus,,review,"GM 1986-1993, Proton 1996-2017, Geely after"
+CERT,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,2,CERT,,review,junk division short-name in MY2024 FE file; resolve via CAFE Mfr Name on those rows
+BGR,model-year-2024-fuel-economy-and-technology-data.csv,MFR_DIVISION_SHORT_NM,2,BGR,,review,Bugatti Rimac CAFE code
+Volvo,vehicles.csv,make,974,Volvo,,review,"Ford 1999-2010, Geely after; separate CAFE manufacturer"
+Jaguar,vehicles.csv,make,543,Jaguar,,review,"Ford 1990-2008, Tata/JLR after"
+Saab,vehicles.csv,make,432,Saab,,review,"GM 1990-2010, independent before, defunct after; parent depends on model year"
+Land Rover,vehicles.csv,make,405,Land Rover,,review,"Ford 2000-2008, Tata/JLR after"
+Maserati,vehicles.csv,make,238,Maserati,,review,see Maserati
+Aston Martin,vehicles.csv,make,196,Aston Martin,,review,"Ford 1994-2007, independent after"
+Lotus,vehicles.csv,make,71,Lotus,,review,"GM 1986-1993, Proton 1996-2017, Geely after"
+Daewoo,vehicles.csv,make,67,Daewoo,,review,GM-affiliated 2002+ (sold as Suzuki/Chevrolet later); standalone brand years 1998-2002
+J.K. Motors,vehicles.csv,make,36,J.K. Motors,,unmapped,
+Wallace Environmental,vehicles.csv,make,32,Wallace Environmental,,unmapped,
+CX Automotive,vehicles.csv,make,17,CX Automotive,,unmapped,
+Federal Coach,vehicles.csv,make,14,Federal Coach,,unmapped,
+Import Trade Services,vehicles.csv,make,13,Import Trade Services,,unmapped,
+Dabryan Coach Builders Inc,vehicles.csv,make,9,Dabryan Coach Builders Inc,,unmapped,
+"Tecstar, LP",vehicles.csv,make,6,"Tecstar, LP",,unmapped,
+Mcevoy Motors,vehicles.csv,make,6,Mcevoy Motors,,unmapped,
+Bitter Gmbh and Co. Kg,vehicles.csv,make,5,Bitter Gmbh and Co. Kg,,unmapped,
+VPG,vehicles.csv,make,5,VPG,,unmapped,
+Autokraft Limited,vehicles.csv,make,4,Autokraft Limited,,unmapped,
+Panther Car Company Limited,vehicles.csv,make,4,Panther Car Company Limited,,unmapped,
+Texas Coach Company,vehicles.csv,make,4,Texas Coach Company,,unmapped,
+Kenyon Corporation Of America,vehicles.csv,make,4,Kenyon Corporation Of America,,unmapped,
+Bill Dovell Motor Car Company,vehicles.csv,make,4,Bill Dovell Motor Car Company,,unmapped,
+Bugatti Rimac,vehicles.csv,make,4,Bugatti Rimac,,review,Rimac-majority JV with Porsche 45% since 2021; not a clean VW rollup
+BMW Alpina,vehicles.csv,make,3,BMW Alpina,,review,independent tuner until BMW acquired it in 2022; 3 rows in vehicles.csv
+Evans Automobiles,vehicles.csv,make,3,Evans Automobiles,,unmapped,
+Consulier Industries Inc,vehicles.csv,make,3,Consulier Industries Inc,,unmapped,
+"PAS, Inc",vehicles.csv,make,2,"PAS, Inc",,unmapped,
+Quantum Technologies,vehicles.csv,make,2,Quantum Technologies,,unmapped,
+Red Shift Ltd.,vehicles.csv,make,2,Red Shift Ltd.,,unmapped,
+CODA Automotive,vehicles.csv,make,2,CODA Automotive,,unmapped,
+CCC Engineering,vehicles.csv,make,2,CCC Engineering,,unmapped,
+Laforza Automobile Inc,vehicles.csv,make,2,Laforza Automobile Inc,,unmapped,
+PAS Inc - GMC,vehicles.csv,make,2,PAS Inc - GMC,,unmapped,
+"E. P. Dutton, Inc.",vehicles.csv,make,1,"E. P. Dutton, Inc.",,unmapped,
+Panoz Auto-Development,vehicles.csv,make,1,Panoz Auto-Development,,unmapped,
+Lambda Control Systems,vehicles.csv,make,1,Lambda Control Systems,,unmapped,
+London Coach Co Inc,vehicles.csv,make,1,London Coach Co Inc,,unmapped,
+Import Foreign Auto Sales Inc,vehicles.csv,make,1,Import Foreign Auto Sales Inc,,unmapped,
+S and S Coach Company  E.p. Dutton,vehicles.csv,make,1,S and S Coach Company  E.p. Dutton,,unmapped,
+Superior Coaches Div E.p. Dutton,vehicles.csv,make,1,Superior Coaches Div E.p. Dutton,,unmapped,
+Vixen Motor Company,vehicles.csv,make,1,Vixen Motor Company,,unmapped,
+Volga Associated Automobile,vehicles.csv,make,1,Volga Associated Automobile,,unmapped,
+Panos,vehicles.csv,make,1,Panos,,unmapped,
+London Taxi,vehicles.csv,make,1,London Taxi,,unmapped,
+Excalibur Autos,vehicles.csv,make,1,Excalibur Autos,,unmapped,
+Azure Dynamics,vehicles.csv,make,1,Azure Dynamics,,unmapped,
+ASC Incorporated,vehicles.csv,make,1,ASC Incorporated,,unmapped,
+Aurora Cars Ltd,vehicles.csv,make,1,Aurora Cars Ltd,,unmapped,
+STI,vehicles.csv,make,1,STI,,unmapped,
+"JBA Motorcars, Inc.",vehicles.csv,make,1,"JBA Motorcars, Inc.",,unmapped,
+Environmental Rsch and Devp Corp,vehicles.csv,make,1,Environmental Rsch and Devp Corp,,unmapped,
+Goldacre,vehicles.csv,make,1,Goldacre,,unmapped,
+Isis Imports Ltd,vehicles.csv,make,1,Isis Imports Ltd,,unmapped,
