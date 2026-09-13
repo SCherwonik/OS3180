@@ -478,7 +478,55 @@ and the classes converge to 1.9–2.2%/yr. The fig42-vs-fig45 recent-rate
 gap (2.27 vs 1.87%/yr) is the measured electrification contribution to
 fleet productivity: ~0.4pp/yr, worth ~5 MPG-equivalent by 2045.
 
+### Act X — One equation for every powertrain (`33_pooled_model.py` + `34_charts_pooled.py`, 2026-09-13)
+
+The presenter's review of the deck raised a consistency problem: BEVs
+appeared in every context slide but were excluded from the equation. Act X
+resolves it with one pooled model rather than a companion model.
+
+- **DV basis**: MPG for combustion rows and MPGe (miles per 33.7 kWh) for
+  BEV rows are the same FE-file column on the same unadjusted 2-cycle
+  test, so a pooled DV of miles per gallon-equivalent of energy is
+  physically coherent.
+- **Missing BEV horsepower**: the FE file leaves `ENG_RATED_HP` blank for
+  all 702 EL rows. Solved with the EPA MY2024 Test Car List (new source,
+  DATA_SOURCES.md), joined through a tiered key: (carline name, test
+  weight) → name → (year-agnostic test group, weight) → test group.
+  96.3% of 270 BEV model types matched; the key validated on combustion
+  rows reproduces filed HP within 10% for 86.5%. Unmatched (Fisker Ocean,
+  four Taycan trims) dropped, not imputed.
+- **Unit errors in the EPA file**: two BEV rows (Model S Plaid 21in, Q4
+  40 e-tron) carry kWh/100 mi in the MPGe cell. Detected by a physical
+  rule (an unadjusted value cannot sit below its own 5-cycle label);
+  recomputed as 3370.5 / cell; logged. Before the fix they were the two
+  largest studentized residuals (−13.8, −8.5); after it both sit on the
+  line.
+- **Specifications** (reports/33_pooled_model.md): A combustion-only
+  (stage 19 reproduced, R² 0.846); B pooled + powertrain factor + footprint
+  (0.955; footprint t = 0.1); C one merged "electrified" dummy (**0.465**,
+  weight sign flips: the presenter's suggested shortcut, tested and
+  rejected; nested F = 13,798); D ordinal 0/1/2 (0.814); E BEV-specific
+  slopes (0.968; BEV weight elasticity −1.05, HP ≈ 0; F(3,1276) = 179);
+  **F final = B without footprint: R² 0.955, F(4,1280) = 6,732, VIF ≤ 1.9**.
+- **Final equation**: ln(MPG) = 9.26 − 0.453·ln(wt) − 0.369·ln(HP) +
+  0.224·hybrid + 1.708·BEV. Hybrid +25%, BEV +452% at equal weight/power.
+- **Downstream**: stages 29 and 30 now read the elasticities from
+  `outputs/pooled_model.json` (fleet productivity +1.79%/yr, R² 0.980;
+  38–43 by 2045; classes 1.8–2.4%/yr). Stage 31 keeps the combustion-only
+  elasticities because its series is combustion-only. Fig43 now annotates
+  the 2023 Car SUV spike in-chart.
+- **What changed our minds**: footprint, significant in the combustion
+  model (p = 0.02), is redundant once BEVs are in; and the HP elasticity
+  is not universal — electric motors carry no part-load penalty, which is
+  why a BEV's economy is nearly all about mass.
+
+Figures: fig49 (weight vs MPG-eq, three powertrains), fig50 (HP, log-log),
+fig51 (predicted vs actual with 95% band and named outliers), fig52 (why
+the merged dummy fails). Deck: SHORTSTORY.md (9-part structure, 34 slides).
+
 ## 4. Suggested deck order
+
+(Historical; the delivered deck follows the 9-part order in SHORTSTORY.md.)
 
 1. fig1 (the arc) → fig16 (the algorithm agrees)
 2. fig6 (the frozen standard) → fig5 (the gas-price story) → **fig19 (the

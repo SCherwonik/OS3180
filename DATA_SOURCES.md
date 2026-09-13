@@ -69,6 +69,17 @@ link). Derived columns (cost-per-mile, parity ratio) documented in
 |---|---|---|
 | `Phil Data/Insurance Project Dataset - 2026.09.01.xlsx` | Compiled by teammate Phil. IIHS/HLDI insurance losses by make and model: https://www.iihs.org/research-areas/auto-insurance/insurance-losses-by-make-and-model | 11,313 vehicle-window rows, six relative loss measures, 2015-2017 through 2022-2024 windows. Automation scores (1-3) were generated with Grok and shipped WITHOUT citations (the workbook's supporting-links section is empty); automated audit in reports/16_insurance_prep.md, human-verification worksheet at outputs/automation_score_audit_sample.csv. Loss values are relative deviations from the all-vehicle average per IIHS methodology. |
 
+## EPA Test Car List (2026-09-13, 33 stage)
+
+| File | Origin | Notes | md5 |
+|---|---|---|---|
+| `external/epa_24_testcar_2025-05.xlsx` | EPA, Data on Cars used for Testing Fuel Economy, MY2024 list posted May 2025: https://www.epa.gov/compliance-and-fuel-economy-data/data-cars-used-testing-fuel-economy (file `24-testcar-2025-05.xlsx`, 1.53 MB) | 4,277 test records, 67 columns, incl. `Rated Horsepower` for every tested vehicle (610 electric records). Used only to supply rated HP for battery-electric model types, which the MY2024 FE file leaves blank. Tiered join key: (carline name, test weight) -> carline name -> (year-agnostic test group, test weight) -> test group; 96.3% of 270 BEV model types matched, unmatched (Fisker Ocean, four Taycan trims) dropped. Key validated on combustion rows where HP is already filed: 97.8% matched, 86.5% within 10% of the filed value. | `d69c770e4712c34f2b5b51f88efeeb5e` |
+
+Unit correction logged by the same stage: two BEV rows in the FE file (Tesla
+Model S Plaid 21in, Audi Q4 40 e-tron) carry kWh/100 mi in the MPGe cell
+(detected because an unadjusted 2-cycle value cannot sit below its own 5-cycle
+label); MPGe recomputed as 3370.5 / cell. Table in `reports/33_pooled_model.md`.
+
 ## Embedded reference table (not a file)
 
 CAFE passenger-car standards, MY1978–2010, hardcoded in `06_external.py`
@@ -99,7 +110,8 @@ represented by a single number.
 12f. `external/msrp_model_level.csv` -- SCAFFOLD, NOT DATA (for CURRENT 2026 models, which the CarAPI sample does not cover): 22 representative models (8 BEV, 2 FCEV, 5 hybrid, 7 gasoline) with blank msrp/destination-fee/source-url/date columns for manual fill from manufacturer sites. No per-model MSRP exists in any public bulk dataset consulted (EPA, fueleconomy.gov, NHTSA vPIC); prices must be hand-entered with a citation per row before any analysis touches this file.
 13. `05_charts.py`, `07_charts_extended.py`, `09_charts_extra.py`, `11_charts_stats.py`, `13_charts_validation.py`, `15_charts_more.py`, `18_charts_insurance.py`, `20_charts_final.py` -> `charts/fig1..fig31`
 
-13. `29_productivity.py` -> `outputs/productivity.csv`, `reports/29_productivity.md`, `charts/fig42_productivity_projection.png` (design-normalized MPG productivity + 2025-2045 projection; derived entirely from analysis_clean.csv and the stage-19 elasticities, no new raw inputs)
+14. `33_pooled_model.py` -> `outputs/my2024_pooled.csv`, `outputs/pooled_model.json`, `reports/33_pooled_model.md` (the deck's equation: pooled gas/hybrid/BEV, specs A-F, Test Car List HP join, unit check, outliers, prediction band); `34_charts_pooled.py` -> fig49-fig52
+15. `29_productivity.py` -> `outputs/productivity.csv`, `reports/29_productivity.md`, fig42; `30_class_productivity.py` -> `outputs/class_productivity.csv`, `reports/30_class_productivity.md`, fig43-fig44 (both read the final elasticities from `outputs/pooled_model.json`, so they run AFTER stage 33); `31_ice_productivity.py` -> fig45-fig46 (combustion-only series; deliberately keeps the combustion-only elasticities 0.304 / 0.483); `32_charts_scatters.py` -> fig47-fig48; `27_charts_range.py` -> fig38-fig40; `28_msrp.py` -> fig41
 
 Narrative index: see `STORY.md` for the full story log, figure inventory, deck
 order, ideas backlog, and caveats canon. `SHORTSTORY.md` is the deck-focused

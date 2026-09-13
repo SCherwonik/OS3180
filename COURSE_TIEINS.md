@@ -50,8 +50,9 @@ name-drop course vocabulary at the moment we used it.
 
 | Course concept | Where we used it | Spoken tie-in |
 |---|---|---|
-| H0 / Ha formulation | Deck slide 3: expected signs stated before fitting = four directional alternatives | "Signs were our alternative hypotheses, committed before estimation" |
-| Test statistics, p-values, rejection at α = 0.05 | Every model table (t up to 43.0); Chow F-tests at the changepoints; KS, Brown–Forsythe | — |
+| H0 / Ha formulation | Deck slide 9: explicit H₀: βᵢ = 0 / Hₐ: βᵢ < 0 (weight, HP) or > 0 (hybrid, BEV) table, plus the whole-model H₀, written before fitting | "Signs were our alternative hypotheses, committed before estimation" |
+| Test statistics, p-values, rejection at α = 0.05 | Slide 13: t = coefficient ÷ SE, 15.4 to 117.7, every p < 0.001, verdict column; Chow F-tests at the changepoints; KS, Brown–Forsythe | — |
+| Nested-model F-tests | Slide 15 / backup 24–26: merged-dummy vs two-level factor (F(1,1279) = 13,798), footprint (F = 0.03, p = 0.87), BEV-specific slopes (F(3,1276) = 179) | "Each modeling choice was a hypothesis test, not a preference" |
 | **Type II error / power** | Insurance injury effects: all negative, none significant — presented as "consistent but **underpowered**", an explicit beta discussion | "We reported a possible Type II error rather than claiming a null result" |
 | One- vs two-tailed | Two-tailed throughout (conservative given directional priors) | — |
 
@@ -60,23 +61,28 @@ name-drop course vocabulary at the moment we used it.
 | Course concept | Where we used it | Spoken tie-in |
 |---|---|---|
 | Two-sample comparisons | Freeze-era vs footprint-era CAFE gap distributions (two-sample KS, p ≈ 5e-54, fig23); tight-vs-recent variance windows | — |
-| **F-statistic** | The regression's global **F(4, 1020) = 1,401** is the ANOVA decomposition of the model: between-model vs residual variation | "The F on the results slide is Chapter 10's machinery — explained variation over unexplained, exactly SST vs SSE" |
-| **ANOVA via dummy variables** | Insurance model's size/body-group dummies and the class breakouts are regression's equivalent of one-way ANOVA treatments (regression with factor dummies ≡ ANOVA) | "Our class dummies are a one-way ANOVA in regression clothing" |
+| **F-statistic** | The regression's global **F(4, 1280) = 6,732** is the ANOVA decomposition of the model: between-model vs residual variation (slide 13 callout says so) | "The F on the results slide is Chapter 10's machinery — explained variation over unexplained, exactly SST vs SSE" |
+| **ANOVA via dummy variables** | The deck's powertrain variable is one three-level factor carried as two dummies (hybrid, BEV) against a gasoline/diesel reference; the insurance model's size/body-group dummies likewise (regression with factor dummies ≡ ANOVA) | "Our powertrain dummies are a one-way ANOVA in regression clothing" |
+| Residual diagnostics, prediction intervals | Slide 14: 95% prediction band (predicted ×/÷ e^(1.96·s)), 94% coverage; studentized residuals name the outliers; VIF for collinearity (flagged as beyond the course) | "The band is the prediction-interval idea from Chapter 12 applied in logs" |
 | Variance-equality testing (ANOVA's assumption toolkit) | **Brown–Forsythe** W = on the manufacturer re-divergence (p = 0.042, validation E) | "Levene-family test, from the ANOVA toolkit, on whether the field really re-diverged" |
 | Multiple comparisons awareness | fig29 shows six simultaneous tests; only one survives — noted without hiding the other five | "With six tests at α = .05 you expect ~0.3 false positives; our one hit is at p = 0.003, robust to any Bonferroni-style correction" |
 
 ## Rubric lines, already covered
 
-- Background → slides 2, 9 - Data sources + descriptives → slide 4 +
-  DATA_SOURCES.md - BLUF → title + close - Hypothesis w/ DV & IVs →
-  slide 3 - Statistical analysis + significance → slides 6–8 -
-  Results/conclusions/call-to-action → slides 16, 18 - Limitations →
-  slide 17 - "Model coefficients, R², standard error" displays → slide 7
-  table - Pre-attentive attributes/Gestalt → consistent entity colors,
-  claim titles, one-highlight-per-chart design system.
+(Slide numbers as of the 34-slide 9-part deck, 2026-09-13.)
 
-## Three cheap deck tweaks if desired (not yet applied)
+- Background → slides 2–7 - Data sources + descriptives → slide 8 + slide
+  22 (data links) + DATA_SOURCES.md - BLUF → title + close (21) -
+  Hypothesis w/ DV & IVs → slide 9 - Statistical analysis + significance →
+  slides 12–15 - Results/conclusions/call-to-action → slides 18, 21 -
+  Limitations → slide 20 - "Model coefficients, R², standard error"
+  displays → slide 13 table - Pre-attentive attributes/Gestalt →
+  consistent entity colors, claim titles, one-highlight-per-chart design
+  system.
 
-1. Slide 3: add explicit "H0: βi = 0 / Ha: βi < 0 (hybrid: > 0)" notation.
-2. Slide 8 notes: say "F is the ANOVA decomposition" aloud.
-3. Backup fig20 (if re-added): cite the Empirical Rule when saying z = 6.
+## Deck tweaks
+
+Applied 2026-09-13: explicit H₀/Hₐ notation (slide 9); "F is the ANOVA
+decomposition" said on slide 13 and in its notes; VIF explained in a
+callout since the course did not cover it. Still optional: cite the
+Empirical Rule when saying z = 6 if backup fig20 is re-added.

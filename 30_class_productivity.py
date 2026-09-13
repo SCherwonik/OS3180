@@ -2,7 +2,8 @@
 broken out by EPA Trends vehicle class.
 
 Each class's fleet MPG is re-expressed at ITS OWN constant 2024 weight and
-horsepower (stage-19 elasticities), so every line reads as pure technology
+horsepower (stage-33 pooled elasticities, read from outputs/pooled_model
+.json), so every line reads as pure technology
 progress within that class. EPA Trends has no 'coupe' class: two-doors fold
 into Sedan/Wagon, stated in the report rather than approximated.
 
@@ -11,6 +12,7 @@ charts/fig43_class_productivity.png
 """
 
 import io
+import json
 import os
 
 import matplotlib
@@ -25,7 +27,9 @@ OUT = os.path.join(HERE, "outputs")
 REPORTS = os.path.join(HERE, "reports")
 CHARTS = os.path.join(HERE, "charts")
 
-EL_W, EL_H = 0.304, 0.483
+with open(os.path.join(OUT, "pooled_model.json"), encoding="utf-8") as _f:
+    _EL = json.load(_f)["final_elasticities"]
+EL_W, EL_H = _EL["weight"], _EL["hp"]  # stage-33 final-equation elasticities
 
 S1, S2, S3, S4, S5 = "#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"
 SURFACE, INK, INK2 = "#fcfcfb", "#0b0b0b", "#52514e"
@@ -81,17 +85,21 @@ def main():
         b.write(f"| {vt} | {100*(np.exp(r.slope)-1):.2f}% | "
                 f"{r.rvalue**2:.3f} | {n[0]:.1f} -> {n[-1]:.1f} | "
                 f"{proj[-1]:.0f} |\n")
+    rates = {vt: 100 * (np.exp(results[vt][2].slope) - 1) for vt, _ in CLASSES}
+    r2s = {vt: results[vt][2].rvalue ** 2 for vt, _ in CLASSES}
+    fastest = max(rates, key=rates.get)
+    slowest = min(rates, key=rates.get)
     b.write(
         "\n## Reading\n\n"
         "- The productivity law is class-universal: every class grows a "
-        "steady 2.0-2.6%/yr with log-linear R² 0.93-0.99. Classes differ "
-        "in LEVEL (a pickup's physics), barely in RATE.\n"
-        "- Car SUV is the fastest (2.57%/yr): the crossover category "
-        "absorbed hybridization hardest (RAV4/CR-V-class hybrids), and its "
-        "early-years series is the noisiest (R² 0.93, tiny 1970s-80s "
-        "volumes).\n"
-        "- Pickups are slowest (2.00%/yr) yet still doubled-plus on "
-        "constant design.\n"
+        f"steady {min(rates.values()):.1f}-{max(rates.values()):.1f}%/yr with "
+        f"log-linear R² {min(r2s.values()):.2f}-{max(r2s.values()):.2f}. "
+        "Classes differ in LEVEL (a pickup's physics), barely in RATE.\n"
+        f"- {fastest} is the fastest ({rates[fastest]:.2f}%/yr); "
+        f"{slowest} is slowest ({rates[slowest]:.2f}%/yr) yet still "
+        "doubled-plus on constant design.\n"
+        "- Car SUV's late-years path carries the Model Y (BEV share of the "
+        "class 35.7% in 2023); stage 31 shows the class ex-BEV.\n"
         "- No 'coupe' class exists in EPA Trends: two-door cars fold into "
         "Sedan/Wagon, and no weight/HP time series exists for two-doors in "
         "any project source, so a coupe line is not constructible without "
@@ -123,14 +131,22 @@ def main():
         used.append(yy)
         ax.text(2045.5, yy, f"{vt}  +{g:.1f}%/yr", color=c,
                 fontweight="bold", fontsize=10, va="center")
+    t_cs, n_cs, _, _ = results["Car SUV"]
+    y23 = float(n_cs[list(t_cs).index(2023)])
+    y24 = float(n_cs[list(t_cs).index(2024)])
+    ax.annotate("2023 spike: Model Y enters the class\n(BEV share of Car SUV "
+                "35.7%); 2024 dip = credit hangover,\nsedan-class BEV share "
+                "halves. Data are final.",
+                xy=(2023, y23), xytext=(2001, 56), fontsize=9.5, color=S2,
+                arrowprops=dict(arrowstyle="-", color=S2, lw=0.8))
     ax.set_xlim(1974, 2054)
     ax.set_ylim(0, 70)
     ax.set_title("Each class's fleet MPG at its own constant 2024 weight and "
-                 "horsepower (stage-19 elasticities); dashed = trend "
+                 "horsepower (pooled-equation elasticities); dashed = trend "
                  "projection to 2045", loc="left", fontsize=10.5,
                  color=INK2, pad=8)
     fig.suptitle("Normalized by class, the productivity law is universal: "
-                 "2.0-2.6%/yr everywhere",
+                 f"{min(rates.values()):.1f}-{max(rates.values()):.1f}%/yr everywhere",
                  x=0.01, ha="left", fontsize=15, fontweight="bold")
     fig.text(0.01, 0.012, "EPA Trends by vehicle type. No 'coupe' class "
              "exists in Trends (two-doors fold into Sedan/Wagon). Stage-29 "

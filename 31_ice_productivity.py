@@ -31,6 +31,9 @@ OUT = os.path.join(HERE, "outputs")
 REPORTS = os.path.join(HERE, "reports")
 CHARTS = os.path.join(HERE, "charts")
 
+# Combustion-only elasticities (stage 19 / stage-33 spec A), deliberately:
+# this series backs BEVs out, so the combustion-only equation is the
+# consistent instrument. Stages 29-30 use the pooled (spec F) elasticities.
 EL_W, EL_H = 0.304, 0.483
 BEV_COL = "share_powertrain_battery_electric_vehicle_bev"
 
