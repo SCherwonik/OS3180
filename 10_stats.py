@@ -188,14 +188,33 @@ def diffusion(aa):
         "Hybrid (HEV)": "share_powertrain_gasoline_strong_hybrid_hev",
         "BEV": "share_powertrain_battery_electric_vehicle_bev",
     }
+    # Completed curves (Turbo, GDI, CVT) have data on both sides of the
+    # midpoint, so the ceiling L is estimable. Hybrid and BEV are still on
+    # the ramp: a free fit cannot identify L (HEV's free fit pins the upper
+    # bound; BEV's flips between an early S and a low plateau depending on
+    # the last two points). For those two the ceiling is FIXED at 1.0, i.e.
+    # takeoff is assumed and only the rate and midpoint are estimated. The
+    # assumption is recorded per technology and stated on the chart.
+    ramp = {"Hybrid (HEV)", "BEV"}
+
+    def fit(t, y, p0, fixed_L):
+        if fixed_L:
+            f2 = lambda tt, k, t0: logistic(tt, 1.0, k, t0)
+            p, _ = optimize.curve_fit(f2, t, y, p0=p0[1:], bounds=([0.01, 1970], [2.0, 2080]),
+                                      maxfev=20000)
+            return np.array([1.0, p[0], p[1]])
+        p, _ = optimize.curve_fit(logistic, t, y, p0=p0,
+                                  bounds=([0.01, 0.01, 1970], [1.0, 2.0, 2080]), maxfev=20000)
+        return p
+
     out = {}
     for name, col in techs.items():
         d = aa.dropna(subset=[col])
         t, y = d.model_year.values.astype(float), d[col].values.astype(float)
+        fixed = name in ramp
+        p0 = [max(y.max(), 0.05), 0.3, t[np.argmax(y > y.max() / 2)]]
         try:
-            popt, _ = optimize.curve_fit(
-                logistic, t, y, p0=[max(y.max(), 0.05), 0.3, t[np.argmax(y > y.max() / 2)]],
-                bounds=([0.01, 0.01, 1970], [1.0, 2.0, 2080]), maxfev=20000)
+            popt = fit(t, y, p0, fixed)
         except RuntimeError:
             out[name] = {"fit": "failed"}
             continue
@@ -204,17 +223,15 @@ def diffusion(aa):
         for _ in range(300):
             yb = logistic(t, *popt) + RNG.choice(resid, len(resid), replace=True)
             try:
-                pb, _ = optimize.curve_fit(
-                    logistic, t, np.clip(yb, 0, 1), p0=popt,
-                    bounds=([0.01, 0.01, 1970], [1.0, 2.0, 2080]), maxfev=5000)
-                boot.append(pb)
+                boot.append(fit(t, np.clip(yb, 0, 1), popt, fixed))
             except RuntimeError:
                 continue
         boot = np.array(boot)
         ci = np.percentile(boot, [2.5, 97.5], axis=0) if len(boot) > 30 else None
         takeover = float(np.log(81) / popt[1])  # years from 10% to 90% of L
         out[name] = {
-            "L": round(float(popt[0]), 3), "k": round(float(popt[1]), 3),
+            "L": round(float(popt[0]), 3), "ceiling_assumed": bool(fixed),
+            "k": round(float(popt[1]), 3),
             "t0": round(float(popt[2]), 1), "takeover_years_10_90": round(takeover, 1),
             "ci_k": [round(float(ci[0][1]), 3), round(float(ci[1][1]), 3)] if ci is not None else None,
             "ci_t0": [round(float(ci[0][2]), 1), round(float(ci[1][2]), 1)] if ci is not None else None,
@@ -379,17 +396,25 @@ def write_report():
 
     b.write("\n## 3. Logistic diffusion fits\n\n")
     b.write("| Technology | L (ceiling) | k (rate) | 95% CI k | t0 (midpoint) | "
-            "10%->90% years |\n|---|---|---|---|---|---|\n")
+            "95% CI t0 | 10%->90% years |\n|---|---|---|---|---|---|---|\n")
     for name, f in R["diffusion"].items():
         if f.get("fit") == "failed":
-            b.write(f"| {name} | fit failed | | | | |\n")
+            b.write(f"| {name} | fit failed | | | | | |\n")
             continue
         ci = f"{f['ci_k'][0]}-{f['ci_k'][1]}" if f["ci_k"] else "n/a"
-        b.write(f"| {name} | {f['L']} | {f['k']} | {ci} | {f['t0']} | "
+        ci0 = f"{f['ci_t0'][0]}-{f['ci_t0'][1]}" if f["ci_t0"] else "n/a"
+        L = f"{f['L']} (assumed)" if f.get("ceiling_assumed") else f"{f['L']} (estimated)"
+        b.write(f"| {name} | {L} | {f['k']} | {ci} | {f['t0']} | {ci0} | "
                 f"{f['takeover_years_10_90']} |\n")
-    b.write("\nCeiling L is estimated, not assumed = 1: CVT and HEV plateau "
-            "far below universal adoption. BEV's parameters carry the widest "
-            "CI: its curve is still mostly ahead of the data.\n")
+    b.write("\nTurbo, GDI, and CVT have data on both sides of their midpoints, so "
+            "the ceiling L is estimated (CVT plateaus at ~22%, far below "
+            "universal adoption). Hybrid and BEV are still on the ramp: the data "
+            "cannot identify their ceilings (a free HEV fit pins the upper bound; "
+            "a free BEV fit flips between an early S-curve and a ~10% plateau), "
+            "so for those two L is fixed at 1.0, takeoff is ASSUMED, and only the "
+            "rate k and midpoint t0 are estimated. Their midpoints lie beyond the "
+            "data and carry the widest CIs; the dashed curves are the least "
+            "reliable objects in the project.\n")
 
     s = R["spurious"]
     b.write("\n## 4. The correlation that wasn't: real gas price vs truck share\n\n")

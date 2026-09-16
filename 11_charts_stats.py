@@ -127,7 +127,7 @@ def fig17(R):
 def fig18(R):
     techs = [("Turbo", S2), ("GDI", S3), ("CVT", S4),
              ("Hybrid (HEV)", S5), ("BEV", S6)]
-    fig, axes = plt.subplots(2, 3, figsize=(12, 7), sharex=True)
+    fig, axes = plt.subplots(2, 3, figsize=(12.5, 7.4), sharex=True)
     axes = axes.ravel()
     for ax, (name, c) in zip(axes, techs):
         style_ax(ax)
@@ -141,34 +141,38 @@ def fig18(R):
         ax.plot(tt[obs], fit[obs], color=c, lw=2)
         ax.plot(tt[~obs], fit[~obs], color=c, lw=2, ls=(0, (3, 2)), alpha=0.6)
         ax.set_ylim(0, 1)
-        ax.set_title(f"{name}", loc="left", fontsize=11, pad=4)
-        ax.text(0.03, 0.83, f"k = {f['k']}\n10%→90%: {f['takeover_years_10_90']} yrs"
-                + (f"\nmidpoint {f['t0']:.0f}" if f.get("t0") else ""),
-                transform=ax.transAxes, fontsize=9, color=INK2)
+        assumed = f.get("ceiling_assumed")
+        ax.set_title(f"{name}" + ("  (on the ramp)" if assumed else "  (completed)"),
+                     loc="left", fontsize=10.5, pad=8)
+        ax.text(0.03, 0.76, f"k = {f['k']}\n10%→90%: {f['takeover_years_10_90']} yrs"
+                + (f"\nmidpoint {f['t0']:.0f}" if f.get("t0") else "")
+                + ("\nceiling assumed = 1" if assumed else f"\nceiling est. {f['L']:.2f}"),
+                transform=ax.transAxes, fontsize=9, color=INK2, va="top")
     ax = axes[5]
     style_ax(ax)
     ax.grid(visible=False)
     ax.set_axis_off()
-    ax.text(0.02, 0.85, "Same curve, different clocks:",
-            fontsize=11, fontweight="bold", color=INK)
-    ax.text(0.02, 0.70,
-            "GDI took over 2.1x faster than turbo\n"
-            "(k = 0.61 vs 0.29).\n\n"
-            "BEV is the honest ambiguity: the fit\n"
-            "put its ceiling at L = 0.10, i.e. the\n"
-            "data so far cannot distinguish 'early\n"
-            "S-curve' from 'low plateau'. Its k and\n"
-            "L carry the widest bootstrap CIs;\n"
-            "believe the dashes least.\n\n"
-            "HEV is the slow burner: fitted\n"
-            "midpoint 2036, still climbing.",
+    ax.text(0.02, 0.92, "Same shape, different clocks:", transform=ax.transAxes,
+            fontsize=11, fontweight="bold", color=INK, va="top")
+    hev, bev = R["diffusion"]["Hybrid (HEV)"], R["diffusion"]["BEV"]
+    ax.text(0.02, 0.80, transform=ax.transAxes, s=
+            "Three completed curves calibrate\n"
+            "the shape: GDI took over 2.1x faster\n"
+            "than turbo (k = 0.61 vs 0.29).\n\n"
+            "Hybrid and BEV are still on the ramp:\n"
+            "only the takeoff rate is identified,\n"
+            "so the ceiling is assumed (= 1) and\n"
+            f"the fitted midpoints ({hev['t0']:.0f} and\n"
+            f"{bev['t0']:.0f}) lie beyond the data.\n"
+            "Believe the dashes least.",
             fontsize=9.5, color=INK2, va="top")
-    fig.suptitle("Every technology is the same S-curve with a different rate constant",
+    fig.suptitle("Three technologies completed the S-curve; hybrid and BEV are still on the ramp",
                  x=0.01, ha="left", fontsize=15, fontweight="bold")
-    footnote(fig, "Logistic fits L/(1+exp(-k(t-t0))) by nonlinear least squares; "
-                  "ceiling L estimated, not assumed. Dashed = extrapolation beyond "
-                  "data. CIs in reports/10_statistics.md.")
-    fig.tight_layout(rect=(0, 0.04, 1, 0.93))
+    fig.subplots_adjust(left=0.06, right=0.98, top=0.86, bottom=0.09, hspace=0.42, wspace=0.28)
+    footnote(fig, "Logistic fits L/(1+exp(-k(t-t0))) by nonlinear least squares. "
+                  "Ceiling L estimated for the completed curves; fixed at 1 "
+                  "(takeoff assumed) for hybrid and BEV. Dashed = extrapolation. "
+                  "CIs in reports/10_statistics.md.")
     save(fig, "fig18_diffusion_fits.png")
 
 

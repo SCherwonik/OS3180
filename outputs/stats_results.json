@@ -529,6 +529,7 @@
  "diffusion": {
   "Turbo": {
    "L": 0.478,
+   "ceiling_assumed": false,
    "k": 0.287,
    "t0": 2017.3,
    "takeover_years_10_90": 15.3,
@@ -607,6 +608,7 @@
   },
   "GDI": {
    "L": 0.535,
+   "ceiling_assumed": false,
    "k": 0.612,
    "t0": 2012.6,
    "takeover_years_10_90": 7.2,
@@ -661,6 +663,7 @@
   },
   "CVT": {
    "L": 0.216,
+   "ceiling_assumed": false,
    "k": 0.437,
    "t0": 2011.5,
    "takeover_years_10_90": 10.0,
@@ -749,15 +752,16 @@
   },
   "Hybrid (HEV)": {
    "L": 1.0,
+   "ceiling_assumed": true,
    "k": 0.184,
    "t0": 2036.2,
    "takeover_years_10_90": 23.9,
    "ci_k": [
     0.126,
-    0.269
+    0.203
    ],
    "ci_t0": [
-    2022.6,
+    2034.5,
     2042.4
    ],
    "years": [
@@ -816,17 +820,18 @@
    ]
   },
   "BEV": {
-   "L": 0.1,
-   "k": 0.853,
-   "t0": 2021.6,
-   "takeover_years_10_90": 5.2,
+   "L": 1.0,
+   "ceiling_assumed": true,
+   "k": 0.291,
+   "t0": 2032.3,
+   "takeover_years_10_90": 15.1,
    "ci_k": [
-    0.475,
-    1.376
+    0.229,
+    0.398
    ],
    "ci_t0": [
-    2020.8,
-    2023.3
+    2029.7,
+    2034.5
    ],
    "years": [
     2011,

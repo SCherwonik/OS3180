@@ -31,15 +31,15 @@ Selected breaks: **[1983, 2003, 2013]**. Chow tests:
 
 ## 3. Logistic diffusion fits
 
-| Technology | L (ceiling) | k (rate) | 95% CI k | t0 (midpoint) | 10%->90% years |
-|---|---|---|---|---|---|
-| Turbo | 0.478 | 0.287 | 0.243-0.324 | 2017.3 | 15.3 |
-| GDI | 0.535 | 0.612 | 0.547-0.692 | 2012.6 | 7.2 |
-| CVT | 0.216 | 0.437 | 0.346-0.546 | 2011.5 | 10.0 |
-| Hybrid (HEV) | 1.0 | 0.184 | 0.126-0.269 | 2036.2 | 23.9 |
-| BEV | 0.1 | 0.853 | 0.475-1.376 | 2021.6 | 5.2 |
+| Technology | L (ceiling) | k (rate) | 95% CI k | t0 (midpoint) | 95% CI t0 | 10%->90% years |
+|---|---|---|---|---|---|---|
+| Turbo | 0.478 (estimated) | 0.287 | 0.243-0.324 | 2017.3 | 2016.5-2018.5 | 15.3 |
+| GDI | 0.535 (estimated) | 0.612 | 0.547-0.692 | 2012.6 | 2012.4-2012.8 | 7.2 |
+| CVT | 0.216 (estimated) | 0.437 | 0.346-0.546 | 2011.5 | 2010.9-2012.1 | 10.0 |
+| Hybrid (HEV) | 1.0 (assumed) | 0.184 | 0.126-0.203 | 2036.2 | 2034.5-2042.4 | 23.9 |
+| BEV | 1.0 (assumed) | 0.291 | 0.229-0.398 | 2032.3 | 2029.7-2034.5 | 15.1 |
 
-Ceiling L is estimated, not assumed = 1: CVT and HEV plateau far below universal adoption. BEV's parameters carry the widest CI: its curve is still mostly ahead of the data.
+Turbo, GDI, and CVT have data on both sides of their midpoints, so the ceiling L is estimated (CVT plateaus at ~22%, far below universal adoption). Hybrid and BEV are still on the ramp: the data cannot identify their ceilings (a free HEV fit pins the upper bound; a free BEV fit flips between an early S-curve and a ~10% plateau), so for those two L is fixed at 1.0, takeoff is ASSUMED, and only the rate k and midpoint t0 are estimated. Their midpoints lie beyond the data and carry the widest CIs; the dashed curves are the least reliable objects in the project.
 
 ## 4. The correlation that wasn't: real gas price vs truck share
 

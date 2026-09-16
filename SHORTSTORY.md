@@ -96,8 +96,10 @@ Money is the through-line: consumers do not buy MPG, they buy annual cost.
 - **The sales mix** (fig2): sedans 81% → 24% of production; Truck SUV 50%.
 - **EVs** (fig3): 21% of the 2024 catalog, 7.2% of production; 2023
   Car SUV BEV share 35.7% (Model Y), 2024 sedan-class share halves.
-- **Technology S-curves** (fig18): logistic diffusion, GDI 2.1× faster
-  than turbo; the BEV ceiling carries the widest CI.
+- **Technology S-curves** (fig18): logistic diffusion; three completed
+  curves (turbo, GDI, CVT) with estimated ceilings, GDI 2.1× faster than
+  turbo; hybrid and BEV fit as ramp technologies with the ceiling fixed at
+  1 (takeoff assumed): midpoints 2036 and 2032, 10→90% in 24 and 15 years.
 
 ## 3. Design-normalized productivity (stages 29–31)
 
@@ -128,7 +130,7 @@ example, 1987: 22.0 × 0.872 × 0.748 = 14.3.
 | 4 | 2 classes | The sales mix inverted: sedans fell from 81% of production to 24% | fig2 |
 | 5 | 2 buyers | Why buyers care: MPG is a cash-flow forecast | fig36 |
 | 6 | 2 EVs | EVs: offered faster than bought, and sensitive to the tax credit | fig3 |
-| 7 | 2 future trends | Efficiency technology arrives on S-curves; the EV curve is the youngest | fig18 |
+| 7 | 2 future trends | Efficiency technology arrives on S-curves; hybrid and electric are still on the ramp | fig18 |
 | 8 | 3 X/Y: the data | Two EPA datasets: the 50-year fleet record, and 1,285 model types for 2024 | fields table |
 | 9 | 3 X/Y: hypotheses | One dependent variable, four independent variables, five hypotheses | H₀/Hₐ table |
 | 10 | 3 X/Y: weight | Heavier is thirstier for every powertrain: 10% more weight costs 4.5% of MPG | fig49 |
